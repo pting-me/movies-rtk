@@ -14,7 +14,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@custom-testing-library/react": ["./tools/test/custom-react"],
+      "@features/counter": ["./src/features/counter/index"],
+      "@app": ["./src/app/index.ts"]
+    }
   },
   "references": [{ "path": "./tsconfig.node.json" }]
 }

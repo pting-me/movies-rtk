@@ -1,5 +1,5 @@
 import { Counter } from './Counter';
-import { render } from '../../../test/custom-react';
+import { render } from '@custom-testing-library/react';
 
 import { describe, it, expect } from 'vitest';
 

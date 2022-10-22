@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Counter } from './features/counter';
+import { Counter } from '@features/counter';
 
 const App: FC = () => {
   return (

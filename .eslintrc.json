@@ -3,7 +3,28 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "js"],
-      "extends": ["eslint:recommended", "prettier"]
+      "extends": ["eslint:recommended", "prettier"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["@testing-library/react"],
+                "message": "Please use `@custom-testing-library/react` instead."
+              },
+              {
+                "group": ["**/features/**/*", "!@features/*", "!./features/*"],
+                "message": "Please use the `@features` alias."
+              },
+              {
+                "group": ["../**/app*", "!@app"],
+                "message": "Please use the `@app` alias."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "files": ["*.ts", "*.tsx"],
