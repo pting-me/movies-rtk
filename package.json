@@ -39,7 +39,7 @@
     "vitest": "^0.24.3"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --cache --fix",
+    "*.{js,ts,tsx}": "eslint --cache --cache-location ./node_modules/.eslint/.eslintcache --fix",
     "*.{js,ts,tsx,css,html,md,json,yaml}": "prettier --write"
   }
 }
