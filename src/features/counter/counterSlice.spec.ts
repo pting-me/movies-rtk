@@ -6,7 +6,9 @@ import {
   incrementByAmount,
 } from './counterSlice';
 
-describe('counter reducer', () => {
+import { describe, it, expect } from 'vitest';
+
+describe('counterSlice', () => {
   const initialState: CounterState = {
     value: 3,
     status: 'idle',
