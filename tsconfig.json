@@ -16,9 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@custom-testing-library/react": ["./tools/test/custom-react"],
-      "@features/counter": ["./src/features/counter/index"],
-      "@app": ["./src/app/index.ts"]
+      "@custom-testing-library/react": ["./tools/test/custom-react"]
     }
   },
   "references": [{ "path": "./tsconfig.node.json" }]

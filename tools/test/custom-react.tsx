@@ -3,7 +3,7 @@ import React, { FC, ReactElement } from 'react';
 // eslint-disable-next-line no-restricted-imports
 import { render, RenderOptions } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from '@app';
+import { store } from '../../src/features/store';
 
 const AllTheProviders: FC<{ children: React.ReactNode }> = ({ children }) => {
   return <Provider store={store}>{children}</Provider>;

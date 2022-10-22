@@ -11,15 +11,11 @@
             "patterns": [
               {
                 "group": ["@testing-library/react"],
-                "message": "Please use `@custom-testing-library/react` instead."
+                "message": "Please use @custom-testing-library/react instead."
               },
               {
-                "group": ["**/features/**/*", "!@features/*", "!./features/*"],
-                "message": "Please use the `@features` alias."
-              },
-              {
-                "group": ["../**/app*", "!@app"],
-                "message": "Please use the `@app` alias."
+                "group": ["**/features/*/*"],
+                "message": "\nPlease import all features through an index.ts.\n\nDo:\nimport { Counter } from './features/counter'\n\nDon't:\nimport { Counter } from './features/counter/Counter'\n\n"
               }
             ]
           }
