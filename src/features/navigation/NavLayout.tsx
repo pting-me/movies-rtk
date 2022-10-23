@@ -1,36 +1,56 @@
-import clsx from 'clsx';
-import { FC, PropsWithChildren, useState } from 'react';
-import { NavBar } from './NavBar';
-import { NavDrawer } from './NavDrawer';
+import { FC, PropsWithChildren } from 'react';
 
 interface Props extends PropsWithChildren {}
 
 export const NavLayout: FC<Props> = (props: Props) => {
   const { children } = props;
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="flex">
-      <div
-        className={clsx(
-          'max-lg:absolute max-lg:shadow lg:border-r min-h-screen w-64 z-20 bg-white -left-64',
-          { 'left-0': isDrawerOpen }
-        )}
-      >
-        <NavDrawer />
-      </div>
-      <div className="flex-1">
-        <div
-          className={clsx(
-            'bg-black opacity-50 h-full w-full absolute hidden z-10',
-            { 'max-lg:block': isDrawerOpen }
-          )}
-          onClick={() => setIsDrawerOpen(false)}
-        />
-        <div className="max-lg:sticky max-lg:shadow top-0 bg-white">
-          <NavBar onMenuClick={() => setIsDrawerOpen(true)} />
+    <div className="drawer drawer-mobile">
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col">
+        <div className="w-full navbar bg-base-300">
+          <div className="flex-none lg:hidden">
+            <label htmlFor="my-drawer-2" className="btn btn-square btn-ghost">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-6 h-6 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </label>
+          </div>
+          <div className="flex-1 px-2 mx-2">Navbar Title</div>
+          <div className="flex-none hidden lg:block">
+            <ul className="menu menu-horizontal">
+              <li>
+                <a>Navbar Item 1</a>
+              </li>
+              <li>
+                <a>Navbar Item 2</a>
+              </li>
+            </ul>
+          </div>
         </div>
         {children}
+      </div>
+      <div className="drawer-side">
+        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+          <li>
+            <a>Sidebar Item 1</a>
+          </li>
+          <li>
+            <a>Sidebar Item 2</a>
+          </li>
+        </ul>
       </div>
     </div>
   );
