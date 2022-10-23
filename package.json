@@ -21,6 +21,7 @@
     "react-router-dom": "^6.4.2"
   },
   "devDependencies": {
+    "@import-meta-env/unplugin": "^0.2.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "13.4.0",
     "@types/react": "^18.0.17",
@@ -30,6 +31,7 @@
     "@typescript-eslint/parser": "^5.40.1",
     "@vitejs/plugin-react": "^2.1.0",
     "autoprefixer": "^10.4.12",
+    "dotenv": "^16.0.3",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",

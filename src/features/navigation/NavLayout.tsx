@@ -1,10 +1,7 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
-interface Props extends PropsWithChildren {}
-
-export const NavLayout: FC<Props> = (props: Props) => {
-  const { children } = props;
-
+export const NavLayout: FC = () => {
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -39,7 +36,7 @@ export const NavLayout: FC<Props> = (props: Props) => {
             </ul>
           </div>
         </div>
-        {children}
+        <Outlet />
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>

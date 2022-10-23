@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@import-meta-env/unplugin': ^0.2.1
   '@reduxjs/toolkit': ^1.8.6
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': 13.4.0
@@ -13,6 +14,7 @@ specifiers:
   autoprefixer: ^10.4.12
   clsx: ^1.2.1
   daisyui: ^2.33.0
+  dotenv: ^16.0.3
   eslint: ^8.26.0
   eslint-config-prettier: ^8.5.0
   husky: ^8.0.1
@@ -39,6 +41,7 @@ dependencies:
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
+  '@import-meta-env/unplugin': 0.2.1_dotenv@16.0.3
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@types/react': 18.0.21
@@ -48,6 +51,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.40.1_wyqvi574yv7oiwfeinomdzmc3m
   '@vitejs/plugin-react': 2.1.0_vite@3.1.8
   autoprefixer: 10.4.12_postcss@8.4.18
+  dotenv: 16.0.3
   eslint: 8.26.0
   eslint-config-prettier: 8.5.0_eslint@8.26.0
   husky: 8.0.1
@@ -502,6 +506,25 @@ packages:
       {
         integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==,
       }
+    dev: true
+
+  /@import-meta-env/unplugin/0.2.1_dotenv@16.0.3:
+    resolution:
+      {
+        integrity: sha512-a2B0QxYG2IZV7Vu8NsfuZrL6wO01GabvHxo+dCHYHSgQ9UHvujiv3guRYSJbU6TB2laDvmMak7vDWxpA8dtDWg==,
+      }
+    engines: { node: '>= 14' }
+    peerDependencies:
+      '@import-meta-env/cli': ^0.2.1
+      dotenv: ^11.0.0 || ^12.0.4 || ^13.0.1 || ^14.3.2 || ^15.0.1 || ^16.0.0
+    peerDependenciesMeta:
+      '@import-meta-env/cli':
+        optional: true
+    dependencies:
+      dotenv: 16.0.3
+      object-hash: 3.0.0
+      picocolors: 1.0.0
+      unplugin: 0.9.6
     dev: true
 
   /@jest/expect-utils/29.2.1:
@@ -1801,6 +1824,14 @@ packages:
     engines: { node: '>=12' }
     dependencies:
       webidl-conversions: 7.0.0
+    dev: true
+
+  /dotenv/16.0.3:
+    resolution:
+      {
+        integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==,
+      }
+    engines: { node: '>=12' }
     dev: true
 
   /eastasianwidth/0.2.0:
@@ -4462,6 +4493,18 @@ packages:
     engines: { node: '>= 4.0.0' }
     dev: true
 
+  /unplugin/0.9.6:
+    resolution:
+      {
+        integrity: sha512-YYLtfoNiie/lxswy1GOsKXgnLJTE27la/PeCGznSItk+8METYZErO+zzV9KQ/hXhPwzIJsfJ4s0m1Rl7ZCWZ4Q==,
+      }
+    dependencies:
+      acorn: 8.8.0
+      chokidar: 3.5.3
+      webpack-sources: 3.2.3
+      webpack-virtual-modules: 0.4.5
+    dev: true
+
   /update-browserslist-db/1.0.10_browserslist@4.21.4:
     resolution:
       {
@@ -4602,6 +4645,21 @@ packages:
         integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==,
       }
     engines: { node: '>=12' }
+    dev: true
+
+  /webpack-sources/3.2.3:
+    resolution:
+      {
+        integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==,
+      }
+    engines: { node: '>=10.13.0' }
+    dev: true
+
+  /webpack-virtual-modules/0.4.5:
+    resolution:
+      {
+        integrity: sha512-8bWq0Iluiv9lVf9YaqWQ9+liNgXSHICm+rg544yRgGYaR8yXZTVBaHZkINZSB2yZSWo4b0F6MIxqJezVfOEAlg==,
+      }
     dev: true
 
   /whatwg-encoding/2.0.0:
