@@ -40,3 +40,4 @@ This is a living document that I will add to while building out the application.
     - Super nitpicky, but `counterApi` is better camel casing. The reason is because, if we were to ever run it through some parsing mechanism (e.g. to snake case), it would be `counter-a-p-i` rather than `counter-api`. It's true that JavaScript itself isn't particularly consistent, but I think it's important to establish here.
   - Should add `index.ts`
     - Helps prevent having to dig through all the file imports to find the right thing, and also encourages use of proper aliasing.
+- I've tried a variety of UI libraries. I really like TailwindCSS, but it doesn't play very well with the most popular UI libraries (namely MUI and Chakra). I tried a variety of different options, and most of the Tailwind based libraries are unnecessarily complex, until I found Daisy UI. It was one of the few libraries that had a NavBar, and where the copy/paste examples "just worked."
