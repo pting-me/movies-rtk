@@ -2,8 +2,7 @@ import { FC } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { CreateList, EditList, Lists } from './features/list';
 import { MovieDetails, Movies } from './features/movie';
-import { NavBar } from './features/nav-bar';
-import { NavDrawer } from './features/nav-drawer';
+import { NavLayout } from './features/navigation';
 import { PersonDetails } from './features/person';
 
 const router = createBrowserRouter([
@@ -35,11 +34,9 @@ const router = createBrowserRouter([
 
 const App: FC = () => {
   return (
-    <div>
-      <NavBar />
-      <NavDrawer />
+    <NavLayout>
       <RouterProvider router={router} />
-    </div>
+    </NavLayout>
   );
 };
 
