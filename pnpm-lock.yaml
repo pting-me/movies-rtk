@@ -10,6 +10,7 @@ specifiers:
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   '@types/testing-library__jest-dom': ^5.14.5
+  '@types/uuid': ^8.3.4
   '@typescript-eslint/eslint-plugin': ^5.40.1
   '@typescript-eslint/parser': ^5.40.1
   '@vitejs/plugin-react': ^2.1.0
@@ -33,6 +34,7 @@ specifiers:
   theme-change: ^2.2.0
   type-fest: ^3.1.0
   typescript: ^4.8.4
+  uuid: ^9.0.0
   vite: ^3.1.0
   vitest: ^0.24.3
 
@@ -47,6 +49,7 @@ dependencies:
   react-redux: 8.0.4_5uumaiclxbdbzaqafclbf6maf4
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
   theme-change: 2.2.0
+  uuid: 9.0.0
 
 devDependencies:
   '@import-meta-env/unplugin': 0.2.1_dotenv@16.0.3
@@ -56,6 +59,7 @@ devDependencies:
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
   '@types/testing-library__jest-dom': 5.14.5
+  '@types/uuid': 8.3.4
   '@typescript-eslint/eslint-plugin': 5.40.1_c4zyna56jjjrggqkyejnaxjxfu
   '@typescript-eslint/parser': 5.40.1_wyqvi574yv7oiwfeinomdzmc3m
   '@vitejs/plugin-react': 2.1.0_vite@3.1.8
@@ -920,6 +924,13 @@ packages:
         integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==,
       }
     dev: false
+
+  /@types/uuid/8.3.4:
+    resolution:
+      {
+        integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==,
+      }
+    dev: true
 
   /@types/yargs-parser/21.0.0:
     resolution:
@@ -4612,6 +4623,14 @@ packages:
       {
         integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==,
       }
+
+  /uuid/9.0.0:
+    resolution:
+      {
+        integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==,
+      }
+    hasBin: true
+    dev: false
 
   /vite/3.1.8:
     resolution:
