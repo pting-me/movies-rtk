@@ -8,7 +8,7 @@ interface Props extends ComponentPropsWithoutRef<'div'> {
   item: CatalogItem;
 }
 
-export const ItemCard: FC<Props> = (props) => {
+export const CatalogItemCard: FC<Props> = (props) => {
   const {
     item: { title, id, posterPath, voteAverage, voteCount },
     className,
@@ -20,7 +20,7 @@ export const ItemCard: FC<Props> = (props) => {
     <div
       className={clsx(
         className,
-        'hover:shadow hover:bg-primary hover:text-primary-content hover:transition-all'
+        'hover:shadow hover:bg-primary hover:text-primary-content transition-all'
       )}
       {...rest}
     >

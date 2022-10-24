@@ -5,6 +5,7 @@ import {
   DetailsQueryOptions,
   DetailsResponse,
 } from './types';
+import { createParamString } from './utils';
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
@@ -16,36 +17,36 @@ export const movieApi = createApi({
         const basePath = `movie/${movieId}`;
 
         const params = {
-          api_key: import.meta.env['TMDB_API_KEY_V3'],
+          api_key: import.meta.env.TMDB_API_KEY_V3,
         };
 
-        const paramString = Object.entries(params)
-          .filter(([, value]) => value !== undefined)
-          .map(([key, value]) => `${key}=${value}`)
-          .join('&');
+        const paramString = createParamString(params);
 
         return `${basePath}?${paramString}`;
       },
     }),
     catalog: builder.query<CatalogResponse, CatalogQueryOptions>({
       query: (options: CatalogQueryOptions) => {
-        const { category, language, page, region } = options;
+        const { category, language, page, region, movieId } = options;
 
-        const basePath = `movie/${category}`;
+        const pathSegments = ['movie'];
+
+        if (movieId !== undefined) {
+          pathSegments.push(String(movieId));
+        }
+
+        pathSegments.push(category);
+
+        const basePath = pathSegments.join('/');
 
         const params = {
-          api_key: import.meta.env['TMDB_API_KEY_V3'],
+          api_key: import.meta.env.TMDB_API_KEY_V3,
           language,
-          page,
+          page: page ? String(page) : undefined,
           region,
         };
 
-        const paramString = Object.entries(params)
-          .filter(([, value]) => value !== undefined)
-          .map(([key, value]) => `${key}=${value}`)
-          .join('&');
-
-        return `${basePath}?${paramString}`;
+        return `${basePath}?${createParamString(params)}`;
       },
     }),
   }),

@@ -1,9 +1,18 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDetailsQuery } from './movieApi';
+import { DetailsResponse } from './types';
 
-export const MovieDetails: FC = () => {
-  const { movieId = '' } = useParams();
+interface ViewProps {
+  data: DetailsResponse;
+}
+
+interface Props {
+  movieId: number;
+}
+
+export const MovieDetailsWidget: FC<Props> = (props) => {
+  const { movieId } = props;
 
   const { data, error, isLoading } = useDetailsQuery({
     movieId,

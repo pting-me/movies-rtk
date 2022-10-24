@@ -7,13 +7,13 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import { CreateList, EditList, Lists } from './features/list';
-import { MovieDetails, MovieCatalog } from './features/movie';
-import { NavLayout } from './features/navigation';
+import { CatalogPage, MoviePage } from './features/movie';
+import { Layout } from './features/layout';
 import { PersonDetails } from './features/person';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<NavLayout />}>
+    <Route path="/" element={<Layout />}>
       <Route index element={<Navigate to="movie" />} />
       <Route path="movie">
         <Route index element={<Navigate to="catalog" />} />
@@ -21,10 +21,10 @@ const router = createBrowserRouter(
           <Route index element={<Navigate to="popular" />} />
           <Route path=":category">
             <Route index element={<Navigate to="1" />} />
-            <Route path=":page" element={<MovieCatalog />} />
+            <Route path=":page" element={<CatalogPage />} />
           </Route>
         </Route>
-        <Route path=":movieId" element={<MovieDetails />}></Route>
+        <Route path=":movieId" element={<MoviePage />}></Route>
       </Route>
       <Route path="person/:personId" element={<PersonDetails />}></Route>
       <Route path="list" element={<Lists />}>

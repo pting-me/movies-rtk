@@ -9,3 +9,12 @@ export const createShallowHumps = <V>(obj: V) => {
     return prev;
   }, {}) as CamelCasedProperties<V>;
 };
+
+export const createParamString = (
+  params: Record<string, string | undefined>
+) => {
+  return Object.entries(params)
+    .filter(([, value]) => Boolean(value))
+    .map(([key, value]) => `${key}=${value}`)
+    .join('&');
+};

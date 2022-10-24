@@ -1,20 +1,21 @@
 import { FC } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { ItemCard } from './ItemCard';
+import { CatalogItemCard } from './CatalogItemCard';
 import { useCatalogQuery } from './movieApi';
 import { createShallowHumps } from './utils';
 
-export interface CatalogParams extends Record<string, string> {
+interface Props {
   category: string;
-  page: string;
+  page: number;
+  movieId?: number;
 }
 
-export const MovieCatalog: FC = () => {
-  const { category = 'popular', page = '1' } = useParams<CatalogParams>();
+export const CatalogWidget: FC<Props> = (props) => {
+  const { category, page, movieId } = props;
 
   const { data, error, isLoading } = useCatalogQuery({
     category,
     page,
+    movieId,
   });
 
   if (error) {
@@ -25,18 +26,23 @@ export const MovieCatalog: FC = () => {
     return <div>Loading</div>;
   }
 
-  if (!data) {
+  if (!data || !data.results || data.results.length === 0) {
     return <div>No movies found</div>;
   }
 
   const { results } = data;
+
   return (
     // Note: The max value in auto-fit (14rem) needs to match width given to ItemCard (w-56)
     <div className="p-8 gap-8 justify-evenly grid grid-cols-[repeat(auto-fit,minmax(0,14rem))]">
       {results.map((result) => {
         const catalogItem = createShallowHumps(result);
         return (
-          <ItemCard className="w-56" key={catalogItem.id} item={catalogItem} />
+          <CatalogItemCard
+            className="w-56"
+            key={catalogItem.id}
+            item={catalogItem}
+          />
         );
       })}
     </div>

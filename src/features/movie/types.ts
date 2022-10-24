@@ -84,19 +84,18 @@ export interface MovieDto {
 export type DetailsResponse = MovieDto;
 
 export interface DetailsQueryOptions {
-  movieId: string;
+  movieId: number;
 }
 
 /* catalog */
 
-export const categories = [
-  'popular',
-  'top_rated',
-  'now_playing',
-  'upcoming',
-] as const;
+export const baseCategories = ['popular', 'top_rated', 'upcoming'] as const;
 
-export type Category = typeof categories[number];
+export type BaseCategory = typeof baseCategories[number];
+
+export const movieSpecificCategories = ['recommendations'] as const;
+
+export type MovieSpecificCategories = typeof movieSpecificCategories[number];
 
 export interface CatalogResponse {
   page: number;
@@ -118,11 +117,15 @@ export interface CatalogQueryOptions {
   language?: string; // ISO 639-1
   /**
    * Specify which page to query.
-   * @default '1'
+   * @default 1
    */
-  page?: string;
+  page?: number;
   /**
    * Specify region
    */
   region?: string;
+  /**
+   * ID of the movie to search by
+   */
+  movieId?: number;
 }
