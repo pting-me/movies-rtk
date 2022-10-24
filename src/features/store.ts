@@ -7,6 +7,8 @@ export const store = configureStore({
     counter: counterReducer,
     [movieApi.reducerPath]: movieApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(movieApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;

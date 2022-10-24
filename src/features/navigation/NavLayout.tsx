@@ -1,14 +1,18 @@
 import { FC } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 
 export const NavLayout: FC = () => {
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
-        <div className="w-full navbar bg-base-300">
-          <div className="flex-none lg:hidden">
-            <label htmlFor="my-drawer-2" className="btn btn-square btn-ghost">
+        <div className="w-full navbar bg-base-300 justify-between">
+          <div className="flex-none">
+            <label
+              htmlFor="my-drawer-2"
+              className="btn btn-square btn-ghost lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -24,14 +28,21 @@ export const NavLayout: FC = () => {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 mx-2">Navbar Title</div>
-          <div className="flex-none hidden lg:block">
-            <ul className="menu menu-horizontal">
+          <div className="flex-none lg:block">
+            <ul className="menu menu-horizontal items-center">
               <li>
-                <a>Navbar Item 1</a>
+                <button>Search</button>
+              </li>
+              <li className="flex items-center">
+                <label className="label cursor-pointer">
+                  <SunIcon className="w-6 h-6 p-0" />
+
+                  <input type="checkbox" className="toggle" />
+                  <MoonIcon className="w-6 h-6 p-0" />
+                </label>
               </li>
               <li>
-                <a>Navbar Item 2</a>
+                <button>Login</button>
               </li>
             </ul>
           </div>
@@ -41,11 +52,23 @@ export const NavLayout: FC = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-          <li>
-            <a>Sidebar Item 1</a>
+          <li className="menu-title">
+            <span>Discover</span>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <Link to={`/movie/catalog/popular`}>Popular</Link>
+          </li>
+          <li>
+            <Link to={`/movie/catalog/top_rated`}>Top Rated</Link>
+          </li>
+          <li>
+            <Link to={`/movie/catalog/upcoming`}>Upcoming</Link>
+          </li>
+          <li className="menu-title">
+            <span>Genres</span>
+          </li>
+          <li>
+            <a>TBD</a>
           </li>
         </ul>
       </div>

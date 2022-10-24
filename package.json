@@ -12,6 +12,7 @@
     "test": "vitest --run"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.12",
     "@reduxjs/toolkit": "^1.8.6",
     "clsx": "^1.2.1",
     "daisyui": "^2.33.0",

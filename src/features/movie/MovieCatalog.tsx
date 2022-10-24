@@ -7,7 +7,7 @@ export interface CatalogParams extends Record<string, string> {
   page: string;
 }
 
-export const Catalog: FC = () => {
+export const MovieCatalog: FC = () => {
   const { category = 'popular', page = '1' } = useParams<CatalogParams>();
 
   const { data, error, isLoading } = useCatalogQuery({
