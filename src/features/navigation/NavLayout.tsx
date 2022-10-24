@@ -1,23 +1,17 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import {
   ArrowRightOnRectangleIcon,
-  MoonIcon,
-  SunIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/24/solid';
-import { themeChange } from 'theme-change';
+import { DarkThemeToggle } from './DarkThemeToggle';
 
 export const NavLayout: FC = () => {
-  useEffect(() => {
-    themeChange(false);
-  }, []);
-
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
-        <div className="w-full navbar shadow justify-between">
+        <div className="w-full h-12 navbar justify-between top-0 max-lg:sticky max-lg:drop-shadow max-lg:bg-base-200">
           <div className="flex-none">
             <label
               htmlFor="my-drawer-2"
@@ -45,24 +39,8 @@ export const NavLayout: FC = () => {
                   <MagnifyingGlassIcon className="w-6 h-6" />
                 </button>
               </li>
-              {/* TODO: make this real toggle */}
               <li className="flex items-center">
-                <button
-                  className="p-2 rounded-full"
-                  data-set-theme="light"
-                  data-act-class="active"
-                >
-                  <SunIcon className="w-6 h-6" />
-                </button>
-              </li>
-              <li>
-                <button
-                  className="p-2 rounded-full"
-                  data-set-theme="dark"
-                  data-act-class="active"
-                >
-                  <MoonIcon className="w-6 h-6" />
-                </button>
+                <DarkThemeToggle className="form-control hover:bg-transparent" />
               </li>
               <li>
                 <button className="p-2 rounded-full">
@@ -74,9 +52,9 @@ export const NavLayout: FC = () => {
         </div>
         <Outlet />
       </div>
-      <div className="drawer-side shadow">
+      <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+        <ul className="menu p-4 overflow-y-auto w-80 text-base-content bg-base-200 lg:bg-base-100 lg:border-r">
           <li className="menu-title">
             <span>Discover</span>
           </li>

@@ -30,17 +30,13 @@ export const MovieCatalog: FC = () => {
   }
 
   const { results } = data;
-
   return (
-    <div className="p-8">
+    // Note: The max value in auto-fit (14rem) needs to match width given to ItemCard (w-56)
+    <div className="p-8 gap-8 justify-evenly grid grid-cols-[repeat(auto-fit,minmax(0,14rem))]">
       {results.map((result) => {
         const catalogItem = createShallowHumps(result);
-        const { id } = catalogItem;
-
         return (
-          <Link key={id} to={`/movie/${id}`}>
-            <ItemCard item={catalogItem} />
-          </Link>
+          <ItemCard className="w-56" key={catalogItem.id} item={catalogItem} />
         );
       })}
     </div>
