@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { ItemCard } from './ItemCard';
 import { useCatalogQuery } from './movieApi';
+import { createShallowHumps } from './utils';
 
 export interface CatalogParams extends Record<string, string> {
   category: string;
@@ -30,13 +32,15 @@ export const MovieCatalog: FC = () => {
   const { results } = data;
 
   return (
-    <div>
-      {results.map((movie) => {
-        const { title, id } = movie;
+    <div className="p-8">
+      {results.map((result) => {
+        const catalogItem = createShallowHumps(result);
+        const { id } = catalogItem;
+
         return (
-          <div key={id}>
-            <Link to={`/movie/${id}`}>{title}</Link>
-          </div>
+          <Link key={id} to={`/movie/${id}`}>
+            <ItemCard item={catalogItem} />
+          </Link>
         );
       })}
     </div>

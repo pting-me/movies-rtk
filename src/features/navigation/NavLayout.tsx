@@ -1,13 +1,23 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
+import {
+  ArrowRightOnRectangleIcon,
+  MoonIcon,
+  SunIcon,
+  MagnifyingGlassIcon,
+} from '@heroicons/react/24/solid';
+import { themeChange } from 'theme-change';
 
 export const NavLayout: FC = () => {
+  useEffect(() => {
+    themeChange(false);
+  }, []);
+
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
-        <div className="w-full navbar bg-base-300 justify-between">
+        <div className="w-full navbar shadow justify-between">
           <div className="flex-none">
             <label
               htmlFor="my-drawer-2"
@@ -29,27 +39,42 @@ export const NavLayout: FC = () => {
             </label>
           </div>
           <div className="flex-none lg:block">
-            <ul className="menu menu-horizontal items-center">
+            <ul className="menu menu-horizontal items-center gap-2">
               <li>
-                <button>Search</button>
+                <button className="p-2 rounded-full">
+                  <MagnifyingGlassIcon className="w-6 h-6" />
+                </button>
               </li>
+              {/* TODO: make this real toggle */}
               <li className="flex items-center">
-                <label className="label cursor-pointer">
-                  <SunIcon className="w-6 h-6 p-0" />
-
-                  <input type="checkbox" className="toggle" />
-                  <MoonIcon className="w-6 h-6 p-0" />
-                </label>
+                <button
+                  className="p-2 rounded-full"
+                  data-set-theme="light"
+                  data-act-class="active"
+                >
+                  <SunIcon className="w-6 h-6" />
+                </button>
               </li>
               <li>
-                <button>Login</button>
+                <button
+                  className="p-2 rounded-full"
+                  data-set-theme="dark"
+                  data-act-class="active"
+                >
+                  <MoonIcon className="w-6 h-6" />
+                </button>
+              </li>
+              <li>
+                <button className="p-2 rounded-full">
+                  <ArrowRightOnRectangleIcon className="w-6 h-6" />
+                </button>
               </li>
             </ul>
           </div>
         </div>
         <Outlet />
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side shadow">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           <li className="menu-title">

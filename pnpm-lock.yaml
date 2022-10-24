@@ -6,6 +6,7 @@ specifiers:
   '@reduxjs/toolkit': ^1.8.6
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': 13.4.0
+  '@types/lodash.camelcase': ^4.3.7
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   '@types/testing-library__jest-dom': ^5.14.5
@@ -21,6 +22,7 @@ specifiers:
   husky: ^8.0.1
   jsdom: ^20.0.1
   lint-staged: ^13.0.3
+  lodash.camelcase: ^4.3.0
   postcss: ^8.4.18
   prettier: ^2.7.1
   react: ^18.2.0
@@ -28,6 +30,8 @@ specifiers:
   react-redux: ^8.0.4
   react-router-dom: ^6.4.2
   tailwindcss: ^3.2.1
+  theme-change: ^2.2.0
+  type-fest: ^3.1.0
   typescript: ^4.8.4
   vite: ^3.1.0
   vitest: ^0.24.3
@@ -37,15 +41,18 @@ dependencies:
   '@reduxjs/toolkit': 1.8.6_kuo2ie247izvzll3jejufdtq3q
   clsx: 1.2.1
   daisyui: 2.33.0_xkowlklhtk6sfvtndbucb3hfiy
+  lodash.camelcase: 4.3.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-redux: 8.0.4_5uumaiclxbdbzaqafclbf6maf4
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
+  theme-change: 2.2.0
 
 devDependencies:
   '@import-meta-env/unplugin': 0.2.1_dotenv@16.0.3
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
+  '@types/lodash.camelcase': 4.3.7
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
   '@types/testing-library__jest-dom': 5.14.5
@@ -62,6 +69,7 @@ devDependencies:
   postcss: 8.4.18
   prettier: 2.7.1
   tailwindcss: 3.2.1_postcss@8.4.18
+  type-fest: 3.1.0
   typescript: 4.8.4
   vite: 3.1.8
   vitest: 0.24.3_jsdom@20.0.1
@@ -827,6 +835,22 @@ packages:
     resolution:
       {
         integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==,
+      }
+    dev: true
+
+  /@types/lodash.camelcase/4.3.7:
+    resolution:
+      {
+        integrity: sha512-Nfi6jpo9vuEOSIJP+mpbTezKyEt75DQlbwjiDvs/JctWkbnHDoyQo5lWqdvgNiJmVUjcmkfvlrvSEgJYvurOKg==,
+      }
+    dependencies:
+      '@types/lodash': 4.14.186
+    dev: true
+
+  /@types/lodash/4.14.186:
+    resolution:
+      {
+        integrity: sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==,
       }
     dev: true
 
@@ -3172,6 +3196,13 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash.camelcase/4.3.0:
+    resolution:
+      {
+        integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==,
+      }
+    dev: false
+
   /lodash.merge/4.6.2:
     resolution:
       {
@@ -4348,6 +4379,13 @@ packages:
       }
     dev: true
 
+  /theme-change/2.2.0:
+    resolution:
+      {
+        integrity: sha512-vvgZEEfmH3yZGq2bWHyzs2AOG1SRfNnCvWbEnPzGpdvvCmAWtOsEdg4H6k/OMapegG+LEQvQ76tQoN9B+FT7rg==,
+      }
+    dev: false
+
   /through/2.3.8:
     resolution:
       {
@@ -4487,6 +4525,14 @@ packages:
         integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==,
       }
     engines: { node: '>=10' }
+    dev: true
+
+  /type-fest/3.1.0:
+    resolution:
+      {
+        integrity: sha512-StmrZmK3eD9mDF9Vt7UhqthrDSk66O9iYl5t5a0TSoVkHjl0XZx/xuc/BRz4urAXXGHOY5OLsE0RdJFIApSFmw==,
+      }
+    engines: { node: '>=14.16' }
     dev: true
 
   /typescript/4.8.4:

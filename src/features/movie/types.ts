@@ -3,6 +3,8 @@
  * Complex objects that will be passed from the API
  */
 
+import { CamelCasedProperties } from 'type-fest';
+
 export interface CatalogItemDto {
   adult: boolean;
   backdrop_path: string;
@@ -19,6 +21,8 @@ export interface CatalogItemDto {
   vote_average: number; // appears to be out of 10
   vote_count: number;
 }
+
+export type CatalogItem = CamelCasedProperties<CatalogItemDto>;
 
 export interface Genre {
   id: number;

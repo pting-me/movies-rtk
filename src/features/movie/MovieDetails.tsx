@@ -21,5 +21,12 @@ export const MovieDetails: FC = () => {
     return <div>No movies found</div>;
   }
 
-  return <div>{JSON.stringify(data)}</div>;
+  const { title, tagline } = data;
+
+  return (
+    <div>
+      <div>{title}</div>
+      <div>{tagline}</div>
+    </div>
+  );
 };
