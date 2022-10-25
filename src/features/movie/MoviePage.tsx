@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { CatalogWidget } from './CatalogWidget';
+import { getCategoryLabel } from './const';
 import { MovieDetailsWidget } from './MovieDetailsWidget';
 
 interface MovieParams extends Record<string, string> {
@@ -21,6 +22,9 @@ export const MoviePage: FC = () => {
   return (
     <div>
       <MovieDetailsWidget movieId={movieId} />
+      <h1 className="p-8 text-3xl uppercase">
+        {getCategoryLabel('recommendations')}
+      </h1>
       <CatalogWidget category="recommendations" page={page} movieId={movieId} />
     </div>
   );

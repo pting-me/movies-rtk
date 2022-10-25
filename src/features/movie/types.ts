@@ -74,6 +74,35 @@ export interface MovieDto {
   vote_count: number;
 }
 
+export interface CastMemberDto {
+  adult: boolean;
+  gender: number; // enum, 1 for female, 2 for male
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  order: number;
+}
+
+export interface CrewMemberDto {
+  adult: boolean;
+  gender: number; // enum, 1 for female, 2 for male
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  credit_id: string;
+  department: string;
+  job: string;
+}
+
 /**
  * Payloads to be used by various API calls
  * Responses should be built off of the DTO definitions
@@ -95,7 +124,9 @@ export type BaseCategory = typeof baseCategories[number];
 
 export const movieSpecificCategories = ['recommendations'] as const;
 
-export type MovieSpecificCategories = typeof movieSpecificCategories[number];
+export type MovieSpecificCategory = typeof movieSpecificCategories[number];
+
+export type Category = BaseCategory | MovieSpecificCategory;
 
 export interface CatalogResponse {
   page: number;
@@ -114,7 +145,7 @@ export interface CatalogQueryOptions {
    * Pass a ISO 639-1 value to display translated data for the fields that support it.
    * @default 'en-US'
    */
-  language?: string; // ISO 639-1
+  language?: string;
   /**
    * Specify which page to query.
    * @default 1
@@ -128,4 +159,19 @@ export interface CatalogQueryOptions {
    * ID of the movie to search by
    */
   movieId?: number;
+}
+
+export interface CreditsResponse {
+  id: number;
+  cast: CastMemberDto[];
+  crew: CrewMemberDto[];
+}
+
+export interface CreditsQueryOptions {
+  movieId: number;
+  /**
+   * Pass a ISO 639-1 value to display translated data for the fields that support it.
+   * @default 'en-US'
+   */
+  language?: string;
 }

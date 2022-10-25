@@ -17,6 +17,12 @@ interface Props extends ComponentPropsWithoutRef<'div'> {
    * Vote count, to be used for display text only
    */
   count?: number;
+
+  /**
+   * How the label should be displayed.
+   * @default 'tooltip'
+   */
+  labelStyle?: 'tooltip' | 'text';
 }
 
 const calculateRating = (rating: number, scale: number) => {
@@ -43,40 +49,57 @@ const calculateRating = (rating: number, scale: number) => {
 };
 
 export const Rating: FC<Props> = (props) => {
-  const { id, rating: baseRating, scale = 10, count } = props;
-  const name = id ?? uuidv4();
+  const {
+    id,
+    rating: baseRating,
+    scale = 10,
+    count,
+    labelStyle = 'tooltip',
+  } = props;
+  const name = `rating-${id ?? uuidv4()}`;
 
   // This should be an integer from 0 - 10, inclusive
   const { floatRating, intRating } = calculateRating(baseRating, scale);
 
-  const displayText = `${floatRating} average rating on ${count} votes`;
+  const displayText = `${floatRating} average rating${
+    count ? ` on ${count} votes` : ''
+  }`;
 
   const range = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
-    <div className="tooltip" data-tip={displayText}>
-      <div className="rating rating-half" aria-label={displayText}>
-        {range.map((value) => {
-          const className =
-            value === 0
-              ? 'rating-hidden hidden'
-              : clsx(
-                  'bg-yellow-500 mask mask-star-2',
-                  value % 2 === 0 ? 'mask-half-2' : 'mask-half-1'
-                );
+    <div
+      className={clsx({ tooltip: labelStyle === 'tooltip' })}
+      data-tip={displayText}
+    >
+      <div className="flex items-center gap-4">
+        <div className="rating rating-half" aria-label={displayText}>
+          {range.map((value) => {
+            const className =
+              value === 0
+                ? 'rating-hidden hidden'
+                : clsx(
+                    value % 2 === 0 ? 'mask-half-2' : 'mask-half-1',
+                    'bg-yellow-500 mask mask-star-2 pointer-events-none'
+                  );
 
-          return (
-            <input
-              type="radio"
-              key={value}
-              aria-hidden={true}
-              readOnly
-              name={name}
-              className={className}
-              checked={value === intRating}
-            />
-          );
-        })}
+            return (
+              <input
+                type="radio"
+                key={value}
+                aria-hidden={true}
+                readOnly
+                name={name}
+                className={className}
+                checked={value === intRating}
+              />
+            );
+          })}
+        </div>
+
+        {labelStyle === 'text' && (
+          <label className="text-yellow-500">{floatRating}</label>
+        )}
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
   CatalogQueryOptions,
   CatalogResponse,
+  CreditsQueryOptions,
+  CreditsResponse,
   DetailsQueryOptions,
   DetailsResponse,
 } from './types';
@@ -49,7 +51,21 @@ export const movieApi = createApi({
         return `${basePath}?${createParamString(params)}`;
       },
     }),
+    credits: builder.query<CreditsResponse, CreditsQueryOptions>({
+      query: (options: CreditsQueryOptions) => {
+        const { movieId } = options;
+        const basePath = `movie/${String(movieId)}/credits`;
+
+        const params = {
+          api_key: import.meta.env.TMDB_API_KEY_V3,
+        };
+
+        const paramString = createParamString(params);
+
+        return `${basePath}?${paramString}`;
+      },
+    }),
   }),
 });
 
-export const { useDetailsQuery, useCatalogQuery } = movieApi;
+export const { useDetailsQuery, useCatalogQuery, useCreditsQuery } = movieApi;

@@ -8,6 +8,8 @@ interface Props extends ComponentPropsWithoutRef<'div'> {
   item: CatalogItem;
 }
 
+const basePath = 'https://image.tmdb.org/t/p/w154';
+
 export const CatalogItemCard: FC<Props> = (props) => {
   const {
     item: { title, id, posterPath, voteAverage, voteCount },
@@ -15,7 +17,6 @@ export const CatalogItemCard: FC<Props> = (props) => {
     ...rest
   } = props;
 
-  const basePath = 'https://image.tmdb.org/t/p/w154';
   return (
     <div
       className={clsx(

@@ -1,5 +1,8 @@
 import { FC } from 'react';
 import { CatalogItemCard } from './CatalogItemCard';
+import { EmptyState } from './EmptyState';
+import { ErrorState } from './ErrorState';
+import { LoadingState } from './LoadingState';
 import { useCatalogQuery } from './movieApi';
 import { createShallowHumps } from './utils';
 
@@ -19,32 +22,34 @@ export const CatalogWidget: FC<Props> = (props) => {
   });
 
   if (error) {
-    return <div>Error</div>;
+    return <ErrorState />;
   }
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return <LoadingState />;
   }
 
   if (!data || !data.results || data.results.length === 0) {
-    return <div>No movies found</div>;
+    return <EmptyState />;
   }
 
   const { results } = data;
 
   return (
-    // Note: The max value in auto-fit (14rem) needs to match width given to ItemCard (w-56)
-    <div className="p-8 gap-8 justify-evenly grid grid-cols-[repeat(auto-fit,minmax(0,14rem))]">
-      {results.map((result) => {
-        const catalogItem = createShallowHumps(result);
-        return (
-          <CatalogItemCard
-            className="w-56"
-            key={catalogItem.id}
-            item={catalogItem}
-          />
-        );
-      })}
+    <div className="p-8">
+      {/* Note: The max value in auto-fit (14rem) needs to match width given to ItemCard (w-56) */}
+      <div className="gap-8 justify-evenly grid grid-cols-[repeat(auto-fit,minmax(0,14rem))]">
+        {results.map((result) => {
+          const catalogItem = createShallowHumps(result);
+          return (
+            <CatalogItemCard
+              className="w-56"
+              key={catalogItem.id}
+              item={catalogItem}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
